@@ -33,7 +33,7 @@ a {
 #animate {
     text-shadow: 0 0 8px rgba(209, 194, 165, 0.1);
     position: absolute;
-    color: #c747ff;
+    color: #e8e8e8;
     bottom: 0;
 }
 
@@ -82,7 +82,7 @@ a {
 }
 
 .linked-animation {
-    color: #c747ff;
+    color: #f4f4f4;
     animation: rgbText 3s steps(9) 0s infinite alternate;
     animation-name: rgbText;
     animation-iteration-count: infinite;
