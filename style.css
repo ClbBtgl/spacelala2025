@@ -1030,7 +1030,9 @@ audio {
     right: 0;
     bottom: 0;
     display: block;
-    background: url(assets/korn.gif);
+    background-position-x: center !important;
+    background-position-y: center !important;
+    background: url(assets/asd.gif);
     background-size: cover;
     transform-origin: center center 0;
     transform: translateZ(-1px) scale(2);
