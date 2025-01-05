@@ -37,6 +37,13 @@ a {
     bottom: 0;
 }
 
+#animate2 {
+    text-shadow: 0 0 8px rgba(209, 194, 165, 0.1);
+    position: absolute;
+    color: #e8e8e8;
+    bottom: -3rem;
+}
+
 #container {
     background: black;
     background: black;

@@ -1,41 +1,37 @@
-window.onload = function() {
+window.onload = function () {
     // let credits = document.querySelector('.credits');
     // let duration = (3 * 60 * 1000) + (30 * 1000); 
     // let remainingTime = duration / 1000; 
     const backgroundMusic = document.getElementById('backgroundMusic');
+    const backgroundMusicW = document.getElementById('backgroundMusicw');
+    
     const container = document.getElementById('main');
     const iframe = document.getElementById('iframeIntroActive');
 
     window.addEventListener('message', (event) => {
-        if (event.data == 'activeLoadFrame') {
+        if (event.data.type == 'activeLoadFrame') {
+            if (event.data.identificatorOption === 'options') {
+               const backElement = document.getElementById('Back');
+                // Crea una nueva regla de estilo para el pseudo-elemento ::before
+                const styleSheet = document.styleSheets[0]; // Usa la primera hoja de estilos
+                styleSheet.insertRule(`#Back::before {background: url('assets/bulletwithmynameonit.gif') center center / cover no-repeat !important;}`, styleSheet.cssRules.length);
+                setTimeout(() => {
+                    backgroundMusicW.play();
+                }, 500);
+            }else{
+                setTimeout(() => {
+                    backgroundMusic.play();
+    
+                }, 500);
+            }
             container.classList.remove("hidden-page");
             container.classList.add("show-page");
             iframe.classList.add("hidden-page");
-            setTimeout(() => {
-                // credits.style.transition = `transform ${duration}ms linear`;
-                // credits.style.transform = 'translateY(-100%)';
-                backgroundMusic.play();
-                // setTimeout(() => {
-                //     credits.style.display = 'none';
-                // }, duration);
-                // Actualizar el contador cada segundo
-                // let countdownInterval = setInterval(() => {
-                //     remainingTime--;
-                //     if (remainingTime == 37) {
-                //         showData()
-                //     }
-
-                // }, 1000);
-
-            }, 500);
-
-            // const reproPlay = document.getElementById("reproPlay");
-            // reproPlay.classList.remove("play")
-            // reproPlay.classList.add("pause")
+            
         }
     })
 
-    $(function() {
+    $(function () {
 
         var quotes = [{
             quote: 'Java is to JavaScript what Car is to Carpet.',
@@ -119,7 +115,7 @@ window.onload = function() {
         var $tweet = $('#tweet-wrapper');
         var htmlOutput;
         // IIFE - get array of random numbers
-        (function() {
+        (function () {
 
             var minNum = 0;
             var maxNum = quotes.length;
@@ -178,7 +174,7 @@ window.onload = function() {
             return setTimeout(render, 20);
         };
 
-        $('#newQuoteBtn').on('click', function() {
+        $('#newQuoteBtn').on('click', function () {
 
             output();
 

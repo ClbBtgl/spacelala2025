@@ -1,7 +1,8 @@
 (function() {
-    var $animate, $container, $message, $paragraph, MESSAGES, animate, initialise, scramble;
+    var $animate, $container, $message, $paragraph, MESSAGES, animate, initialise, scramble,$animate2;
     let count = 0
     let continueShow = document.getElementById("animate");
+    let continueShow2 = document.getElementById("animate2");
     MESSAGES = [];
 
     MESSAGES.push({
@@ -11,22 +12,22 @@
 
     MESSAGES.push({
         delay: 1200,
-        text: ">CV-X[G] XX.X5.203X"
+        text: ">THE END IS HERE"
     });
 
     MESSAGES.push({
         delay: 2200,
-        text: "=-=-=--=-=-=--=-=-=--=-=-=--=-=-=--=-=--=-=-=--=-=--=-=-=-"
+        text: "=-=-=--=-=-=--=-=-=--=-=-=--=-=-=--=-=--=-=-=--=-"
     });
 
     MESSAGES.push({
         delay: 3600,
-        text: "Y0u hav3 1 invitXTiOn, w0ulX you l1k3 t0 3ntry?"
+        text: "YOU HAVE TWO OPTION, SELECT ONE!"
     });
 
     MESSAGES.push({
         delay: 5200,
-        text: "=-=-=--=-=-=--=-=-=--=-=-=--=-=-=--=-=--=-=-=--=-=--=-=-=-"
+        text: "=-=-=--=-=-=--=-=-=--=-=-=--=-=-=--=-=--=-=-=--=-=-"
     });
 
     $container = $("#container");
@@ -34,6 +35,8 @@
     $message = $("#message");
 
     $animate = $("#animate");
+
+    $animate2 = $("#animate2");
 
     $paragraph = null;
 
@@ -134,6 +137,9 @@
                 if (count === 5) {
                     continueShow.classList.remove("hidden");
                     continueShow.classList.add("show");
+                    continueShow2.classList.remove("hidden");
+                    continueShow2.classList.add("show");
+      
                 }
                 return $element.html(text);
 
@@ -144,8 +150,8 @@
     };
 
 
-    setPostMessage = () => {
-        window.parent.postMessage(type = 'activeLoadFrame', '*')
+    setPostMessage = (identificator) => {
+        window.parent.postMessage({type : 'activeLoadFrame',identificatorOption: identificator}, '*')
     }
 
     animate = function() {
@@ -164,7 +170,8 @@
     initialise = function() {
 
         var index, j, len, text;
-        $animate.click(setPostMessage);
+        $animate.click(() => setPostMessage(''));
+        $animate2.click(() => setPostMessage('options'));
         for (index = j = 0, len = MESSAGES.length; j < len; index = ++j) {
             text = MESSAGES[index];
             $message.append(`<p class="linked-animation">`);
