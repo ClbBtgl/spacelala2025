@@ -12,7 +12,7 @@
 
     MESSAGES.push({
         delay: 1200,
-        text: ">THE END IS HERE"
+        text: ">2025"
     });
 
     MESSAGES.push({
@@ -22,7 +22,7 @@
 
     MESSAGES.push({
         delay: 3600,
-        text: "YOU HAVE TWO OPTION, SELECT ONE!"
+        text: "When the law is the love..."
     });
 
     MESSAGES.push({
