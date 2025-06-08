@@ -14,7 +14,7 @@ window.onload = function () {
                const backElement = document.getElementById('Back');
                 // Crea una nueva regla de estilo para el pseudo-elemento ::before
                 const styleSheet = document.styleSheets[0]; // Usa la primera hoja de estilos
-                styleSheet.insertRule(`#Back::before {background: url('assets/youtopia.gif') center center / cover no-repeat !important;}`, styleSheet.cssRules.length);
+                styleSheet.insertRule(`#Back::before {background: url('assets/inthedark.gif') center center / cover no-repeat !important;}`, styleSheet.cssRules.length);
                 setTimeout(() => {
                     backgroundMusicW.play();
                 }, 500);
