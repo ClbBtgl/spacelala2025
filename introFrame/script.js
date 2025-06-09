@@ -1,6 +1,7 @@
 (function() {
     var $animate, $container, $message, $paragraph, MESSAGES, animate, initialise, scramble, $animate2;
     let count = 0;
+    let readyToSubmit = false; // 🔸 Bandera para saber cuándo aceptar Enter
     let continueShow = document.getElementById("animate");
     let continueShow2 = document.getElementById("animate2");
     MESSAGES = [];
@@ -34,13 +35,8 @@
         $element = $(element);
         settings = $.extend(defaults, options);
 
-        shuffle = function() {
-            return Math.random() < 0.5 ? 1 : -1;
-        };
-
-        wrap = function(text, classes) {
-            return `<span class="${classes}">${text}</span>`;
-        };
+        shuffle = () => Math.random() < 0.5 ? 1 : -1;
+        wrap = (text, classes) => `<span class="${classes}">${text}</span>`;
 
         glitchText = settings.glitches;
         glitchCharacters = glitchText.split('');
@@ -92,6 +88,9 @@
                     continueShow.classList.add("show");
                     continueShow2.classList.remove("hidden");
                     continueShow2.classList.add("show");
+
+                    // 🔸 Ahora se puede usar Enter
+                    readyToSubmit = true;
                 }
                 return $element.html(text);
             }
@@ -118,7 +117,7 @@
     initialise = function() {
         var index, j, len, text;
         $animate.click(() => setPostMessage(''));
-        $animate2.click(() => setPostMessage('options'));
+        $animate2.click(() => setPostMessage(''));
 
         for (index = j = 0, len = MESSAGES.length; j < len; index = ++j) {
             text = MESSAGES[index];
@@ -131,12 +130,10 @@
 
     initialise();
 
-    // Captura Enter globalmente y manda postMessage si el botón ya está visible
+    // 🔸 Escucha la tecla Enter cuando readyToSubmit sea true
     document.addEventListener("keydown", function(event) {
-        if (event.key === "Enter") {
-            if (!continueShow.classList.contains("hidden")) {
-                setPostMessage('');
-            }
+        if (event.key === "Enter" && readyToSubmit) {
+            setPostMessage('');
         }
     });
 
