@@ -6,11 +6,11 @@
     let continueShow2 = document.getElementById("animate2");
     MESSAGES = [];
 
-    MESSAGES.push({ delay: 0, text: "Corrupting Code Detected..." });
+    MESSAGES.push({ delay: 0, text: "Eat Sh!t..." });
     MESSAGES.push({ delay: 1200, text: ">2025" });
-    MESSAGES.push({ delay: 2200, text: "=-=-=--=-=-=--=-=-=--=-=-=--=-=-=--=-=--=-=-=--=-" });
-    MESSAGES.push({ delay: 3600, text: "When the law is the love..." });
-    MESSAGES.push({ delay: 5200, text: "=-=-=--=-=-=--=-=-=--=-=-=--=-=-=--=-=--=-=-=--=-=" });
+    MESSAGES.push({ delay: 2200, text: "=-=-=--=-=-" });
+    MESSAGES.push({ delay: 3600, text: "Drop dead..." });
+    MESSAGES.push({ delay: 5200, text: "=-=-=--=-=-" });
 
     $container = $("#container");
     $message = $("#message");
